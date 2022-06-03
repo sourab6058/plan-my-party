@@ -1,21 +1,23 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+import HomePage from "./Components/HomePage";
 import LoginForm from "./Components/LoginForm";
 import Main from "./Components/Register/Main";
-
+import NavBar from "./Components/NavBar";
+import AddPackage from "./Components/Package/AddPackage";
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<Main />} />
-          <Route path="/" element={<h1>Home Page</h1>} />
-        </Routes>
-      </Router>
+      <NavBar />
+      <Routes>
+        <Route path="/login" element={<LoginForm />} exact />
+        <Route path="/register" element={<Main />} exact />
+        <Route path="/add-package" element={<AddPackage />} exact />
+        <Route path="/" element={<HomePage />} exact />
+      </Routes>
     </>
   );
 }
