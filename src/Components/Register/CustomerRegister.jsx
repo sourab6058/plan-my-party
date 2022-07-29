@@ -10,6 +10,7 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import axios from "axios";
 
 import "../../css/Forms.css";
+import "../../css/customerRegister.css";
 
 const CLIENTS_API = process.env.REACT_APP_CLIENTS_API;
 const SELLERS_API = process.env.REACT_APP_SELLERS_API;
@@ -110,10 +111,22 @@ export default class CustomerRegister extends Component {
   render() {
     return (
       <div>
-        <Container fluid="sm form-container">
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicUsername">
-              <Form.Label>Username</Form.Label>
+        <Container
+          fluid="sm form-container"
+          className="customer-register-container"
+        >
+          <div className="customer-register-div">
+            {/* <h1 className="seller-register-div-text">
+                  Register as a Seller and increase your market reach.
+                </h1> */}
+            <div className="customer-register-div-color"></div>
+          </div>
+
+          <Form className="form-div">
+            <h1 className="mb-5 customer-register-heading">
+              Register as a Customer
+            </h1>
+            <Form.Group className="mb-4" controlId="formBasicUsername">
               <Form.Control
                 type="test"
                 placeholder="Enter username"
@@ -136,8 +149,7 @@ export default class CustomerRegister extends Component {
                 </>
               )}
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+            <Form.Group className="mb-4" controlId="formBasicEmail">
               <Form.Control
                 type="email"
                 placeholder="Enter email"
@@ -155,8 +167,7 @@ export default class CustomerRegister extends Component {
               )}
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+            <Form.Group className="mb-4" controlId="formBasicPassword">
               <InputGroup className="mb-3">
                 <FormControl
                   placeholder="Enter Password"
@@ -182,8 +193,7 @@ export default class CustomerRegister extends Component {
                 </InputGroup.Text>
               </InputGroup>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Re-Type Password</Form.Label>
+            <Form.Group className="mb-4" controlId="formBasicPassword">
               <Form.Control
                 type="password"
                 placeholder="Re-Type Password"
@@ -199,8 +209,13 @@ export default class CustomerRegister extends Component {
               )}
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={this.handleSubmit}>
-              Register As A Customer
+            <Button
+              className="register-customer-button"
+              variant="primary"
+              type="submit"
+              onClick={this.handleSubmit}
+            >
+              Register as a Customer
             </Button>
           </Form>
         </Container>

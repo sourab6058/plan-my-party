@@ -1,0 +1,124 @@
+html,
+body {
+  height: 100%;
+  /* border:1px solid black; */
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  margin: 1.5rem 2rem;
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #95979d;
+  cursor: pointer;
+}
+
+.conversation-list-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  width: 30vw;
+  border-right: 2px solid rgb(233, 232, 232);
+}
+.conversation-list-container .heading {
+  width: 100%;
+}
+.conversation-heading {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #95979d;
+  margin: 1rem;
+}
+.conversation-list {
+  height: 80vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+.conversation-list ul {
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+.conversation-list ul li {
+  border: 1px solid rgb(233, 232, 232);
+  width: 100%;
+  height: 70px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 2px;
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+}
+.chatter-image {
+  border-radius: 100%;
+  margin: 0 1rem;
+}
+.chat-container {
+  width: 70vw;
+}
+.chat-container-heading {
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+.chat-container h1 {
+  width: 100%;
+}
+.chat-col {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(233, 232, 232);
+}
+.chat-list {
+  height: 66vh;
+  width: 40vw;
+  overflow-y: scroll;
+}
+.chat {
+  border: 1px solid rgb(233, 232, 232);
+  height: 90vh;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.chats-block {
+  height: 69vh;
+}
+.chats-block ul li {
+  font-size: 1rem;
+  font-family: var(--prim-font);
+}
+.msg-input {
+  width: 100%;
+}
+.input-box {
+  width: 100%;
+  height: 40px;
+  margin: 1rem 0;
+}
+.msg-button {
+  width: 100px;
+  height: fit-content;
+  border: 2px solid var(--ltrPurple);
+  background-color: white;
+  color: var(--ltrPurple);
+  border-radius: 4px;
+  font-weight: 500;
+}
+.msg-button:hover {
+  background-color: var(--ltrPurple);
+  color: #fff;
+}
+.sider {
+  width: 30vw;
+  height: 80vh;
+  border: 1px solid rgb(233, 232, 232);
+}

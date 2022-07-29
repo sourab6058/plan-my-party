@@ -1,0 +1,208 @@
+.top-content-outer-div {
+  width: 100vw;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+}
+.main-heading {
+  text-align: left;
+  font-size: 3rem;
+  color: #b762c1;
+  font-family: var(--prim-font);
+  font-weight: 700;
+  margin-left: 70px;
+}
+.sub-heading {
+  margin-top: -0.5rem;
+  text-align: left;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-left: 70px;
+}
+.paragraph {
+  display: block;
+  width: 70%;
+  font-size: 1rem;
+  margin: 0 auto;
+  text-align: left;
+  font-family: var(--prim-font);
+  font-weight: 600;
+  margin-left: 70px;
+}
+.buttons-div {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  margin-left: 70px;
+}
+.login1-button {
+  background-color: #b762c1;
+}
+.login1-button:hover {
+  background-color: #8946a6;
+}
+.register-button {
+  background-color: #fff;
+  border: 1px solid #8946a6;
+  color: #8946a6;
+  margin-left: 2rem;
+}
+.register-button:hover {
+  background-color: #b762c1;
+  color: #fff;
+}
+.about-image {
+  margin-top: 3rem;
+  margin-left: 2rem;
+  height: 400px;
+  width: 300px;
+  background-image: url(../images/about-image.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.about-img-back {
+  position: absolute;
+  z-index: -1;
+  top: 20%;
+  right: 6%;
+  height: 400px;
+  width: 300px;
+  background-color: #ea99d5;
+  margin-left: 7rem;
+  margin-bottom: 7rem;
+}
+.value-div {
+  position: relative;
+  background-color: #f2f3f9;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.value-heading {
+  display: inline-block;
+  width: 20%;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+.value-text {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  font-weight: 600;
+  margin: 0 auto;
+}
+.value-box-div {
+  position: absolute;
+  top: 25%;
+  left: 28%;
+  width: 70px;
+  height: 70px;
+}
+.value-purple-box {
+  width: 50px;
+  height: 50px;
+  background-color: var(--ltrPurple);
+}
+.value-ltpurple-box {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #ea99d5;
+}
+.images-div {
+  display: flex;
+  flex-direction: row;
+  margin: 3rem 3rem 3rem 3rem;
+  justify-content: space-around;
+}
+.image1 {
+  height: 300px;
+  width: 300px;
+  background-image: url(../images/sourab-img.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #95979d;
+  position: relative;
+}
+.image2 {
+  height: 300px;
+  width: 300px;
+  z-index: 2;
+  background-image: url(../images/profile-photo.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #95979d;
+  position: relative;
+}
+.team-div {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.team-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-family: var(--prim-font);
+  font-weight: 700;
+
+  color: #b762c1;
+}
+.name {
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 1.5rem;
+  width: fit-content;
+  font-weight: 600;
+}
+.image {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  font-size: 28px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 1s;
+}
+.image:after,
+.image:before {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 0px solid #fff;
+  transition: all 1s;
+}
+.image:after {
+  top: -1px;
+  left: -1px;
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+}
+.image:before {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+}
+.image:hover {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.image:hover:before,
+.image:hover:after {
+  width: 100%;
+  height: 100%;
+}

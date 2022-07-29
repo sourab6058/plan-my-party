@@ -1,27 +1,28 @@
-
-*, *::before, *::after{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.form-container{
-    width:50%;
-    padding:1rem;
-    border-radius: .5rem;
+.form-container {
+  width: 50%;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
-.img-upload{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap:2rem
+.img-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.img-preview{
-    position: relative;
-    border:1px solid grey;
-    height:216px;
-    width: 216px;
-    border-radius: 4px;
-    overflow: hidden;
-    margin:0;
-    padding:0;
+.img-preview {
+  position: block;
+  border: 1px solid grey;
+  height: 116px;
+  width: 136px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  padding: 0;
 }

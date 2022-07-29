@@ -1,105 +1,146 @@
 import React, { Component } from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-
 import "../css/NavBar.css";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userDetails: false,
-      isLoginPage: false,
+      user: null,
     };
   }
   componentDidMount() {
-    if (window.location.href.includes("/login")) {
-      if (localStorage.getItem("user-dets")) window.location.href = "/";
-
-      this.setState({ isLoginPage: true });
-    } else {
-      this.setState({ isLoginPage: false });
-    }
-    if (localStorage.getItem("user-dets") && !this.state.userDetails) {
-      this.setState({
-        userDetails: JSON.parse(localStorage.getItem("user-dets")),
-      });
-    }
+    let user = localStorage.getItem("user-dets");
+    if (!user) return;
+    user = JSON.parse(user);
+    this.setState({ user });
+    window.scrollTo(0, 0);
   }
-
   handleLogout = () => {
-    this.setState({ userDetails: false });
     localStorage.removeItem("user-dets");
+    this.setState({ user: null });
+    window.location.href = "/";
   };
-
   render() {
     return (
       <div>
-        <Navbar expand="lg" className="nav-body">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+        <Navbar
+          variant="dark"
+          className="navbar"
+          // fixed="top"
+          style={{
+            backgroundColor: this.props.bgColor,
+            position: "fixed",
+            zIndex: 2,
+            width: "100%",
+            ...this.props.style,
+          }}
+        >
+          <Container>
+            <Navbar.Brand href="#home">
+              <Link
+                className="nav-links"
+                style={{ color: this.props.fontColor }}
+                to="/"
+              >
+                Plan My Party
+              </Link>
+            </Navbar.Brand>
+            <Nav className="ml-auto lg">
               <Nav.Link>
-                <Link to="/" style={{ textDecoration: "none" }}>
+                <Link
+                  className="nav-links"
+                  style={{ color: this.props.fontColor }}
+                  to="/"
+                >
                   Home
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                {this.state.userDetails ? (
-                  <span onClick={this.handleLogout}>Logout</span>
-                ) : (
-                  <Link to="/login" style={{ textDecoration: "none" }}>
-                    Login
-                  </Link>
-                )}
+                <Link
+                  className="nav-links"
+                  style={{ color: this.props.fontColor }}
+                  to="/#explore"
+                >
+                  Explore
+                </Link>
               </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="nav-links"
+                  style={{ color: this.props.fontColor }}
+                  to="/aboutus"
+                >
+                  About Us
+                </Link>
+              </Nav.Link>
+              {this.state.user ? (
+                <>
+                  {this.state.user.type === "seller" && (
+                    <Nav.Link>
+                      <Link
+                        to="add-package"
+                        className="nav-links"
+                        style={{ color: this.props.fontColor }}
+                      >
+                        Add Package
+                      </Link>
+                    </Nav.Link>
+                  )}
+                  <Nav.Link>
+                    <span
+                      className="nav-links"
+                      style={{ color: this.props.fontColor }}
+                      onClick={this.handleLogout}
+                    >
+                      Log Out
+                    </span>
+                  </Nav.Link>
+                  <span
+                    className="user-avatar"
+                    style={{
+                      color: this.props.fontColor,
+                      border: `1px solid ${this.props.fontColor}`,
+                    }}
+                  >
+                    {this.state.user.img_url ? (
+                      <img
+                        src={`${BASE_URL}/uploads/${this.state.user.img_url}`}
+                        width="40px"
+                        height="40px"
+                      />
+                    ) : (
+                      this.state.user.username.substr(0, 2).toUpperCase()
+                    )}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <Nav.Link>
+                    <Link
+                      className="nav-links"
+                      style={{ color: this.props.fontColor }}
+                      to="/login"
+                    >
+                      Login
+                    </Link>
+                  </Nav.Link>
+                  <Nav.Link>
+                    <Link
+                      className="nav-links"
+                      style={{ color: this.props.fontColor }}
+                      to="/register"
+                    >
+                      Join
+                    </Link>
+                  </Nav.Link>
+                </>
+              )}
             </Nav>
-            {this.state.userDetails && (
-              <>
-                {this.state.userDetails.type === "seller" &&
-                this.state.userDetails.img_url ? (
-                  <img
-                    src={`http://localhost:8000/uploads/${this.state.userDetails.img_url}`}
-                    width={40}
-                    alt=""
-                    height={40}
-                    style={{
-                      borderRadius: "50%",
-                      cursor: "pointer",
-                    }}
-                  />
-                ) : (
-                  <div
-                    style={{
-                      margin: "0 0.5rem",
-                      border: "1px solid #ccc",
-                      borderRadius: "50%",
-                      padding: "2px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <h4>
-                      {this.state.userDetails.username
-                        .substr(0, 2)
-                        .toUpperCase()}
-                    </h4>
-                  </div>
-                )}
-                {this.state.userDetails.type === "seller" && (
-                  <Navbar.Text
-                    style={{ marginLeft: "0.5rem", cursor: "pointer" }}
-                  >
-                    <Link to="add-package">+Add Package</Link>
-                  </Navbar.Text>
-                )}
-              </>
-            )}
-          </Navbar.Collapse>
+          </Container>
         </Navbar>
       </div>
     );

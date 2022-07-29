@@ -1,0 +1,22 @@
+.addpackage-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 80vw;
+  padding-bottom: 2rem;
+}
+.sub-text {
+  width: 50%;
+  font-weight: 300;
+}
+.form-desc-text {
+  margin-bottom: 0;
+  width: 200px;
+  font-size: 1.2rem;
+}
+.sbt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: fit-content;
+}

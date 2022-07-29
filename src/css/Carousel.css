@@ -1,0 +1,42 @@
+.carousel-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.carousel-card {
+  height: 350px;
+  width: 21vw;
+}
+.seller-img {
+  margin: 0.75rem;
+  border-radius: 100%;
+}
+.card-description {
+  display: flex;
+  margin-left: 0.75rem;
+}
+.card-description-text {
+  margin-top: 0.75rem;
+}
+.description-heading {
+  font-weight: 600;
+}
+.description-text {
+  margin-top: -0.5rem;
+  color: #95979d;
+}
+.description-heading {
+  font-size: 1rem;
+}
+.css-1m9128y {
+  margin-top: 30px;
+}
+
+.css-hn784z {
+  height: 350px;
+}
+.css-1abc02a {
+  height: 350px;
+}

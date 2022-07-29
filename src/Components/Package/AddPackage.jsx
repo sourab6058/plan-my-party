@@ -7,6 +7,9 @@ import {
   FormControl,
   InputGroup,
 } from "react-bootstrap";
+import { FormControl as FC, MenuItem, Box, Select } from "@mui/material";
+
+import "../../css/addPackage.css";
 
 const PACKAGES_API = process.env.REACT_APP_PACKAGES_API;
 console.log(process.env.REACT_APP_PACKAGES_API);
@@ -20,6 +23,7 @@ export default class AddPackage extends Component {
       description: "",
       price: "",
       img: "",
+      type: "",
       seller: {},
     };
   }
@@ -34,7 +38,8 @@ export default class AddPackage extends Component {
     if (
       this.state.title === "" ||
       this.state.description === "" ||
-      this.state.price === ""
+      this.state.price === "" ||
+      this.state.type === ""
     ) {
       alert("Something is missing!!");
       return;
@@ -47,6 +52,7 @@ export default class AddPackage extends Component {
         price: this.state.price,
         img_url: this.state.img.name,
         seller_id: this.state.seller.id,
+        type: this.state.type,
       })
       .then((res) => {
         console.log(res.data);
@@ -80,32 +86,47 @@ export default class AddPackage extends Component {
     this.uploadFileref.click();
   };
 
+  types = [
+    "",
+    "Birthday",
+    "Wedding",
+    "Festival",
+    "Baby Shower",
+    "Anniversary",
+    "Date",
+    "Office Party",
+    "Bachelor Party",
+  ];
+
   render() {
     return (
       <div>
-        <Container style={{ maxWidth: "50vw" }}>
-          <h1 style={{ color: "#aaa" }}>Add Package</h1>
+        <Container className="addpackage-container">
+          <h1 className="heading">Add Package</h1>
+          <p className="sub-text">
+            Tell us a bit about the service you will offer. This information
+            will help potential buyers to know better about your services.
+          </p>
+          <br />
+          <br />
           <br />
           <Form>
             <InputGroup size="sm">
-              <InputGroup.Text
-                id="inputGroup-sizing-sm1"
-                style={{ minWidth: 100 }}
-              >
-                Title
-              </InputGroup.Text>
+              <span className="form-desc-text">Title</span>
               <FormControl
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
                 value={this.state.title}
                 placeholder="Give a catchy title"
                 onChange={(e) => this.setState({ title: e.target.value })}
-                style={{ fontSize: "2rem" }}
+                style={{ fontSize: "1.5rem" }}
               />
             </InputGroup>
             <br />
+            <br />
+
             <InputGroup style={{ minHeight: "20vh " }}>
-              <InputGroup.Text>Desciption</InputGroup.Text>
+              <span className="form-desc-text">Description</span>
               <FormControl
                 style={{ minHeight: "20vh " }}
                 as="textarea"
@@ -123,13 +144,9 @@ export default class AddPackage extends Component {
                 </>
               )}
             <br />
+            <br />
             <InputGroup size="sm" className="mb-1">
-              <InputGroup.Text
-                id="inputGroup-sizing-sm2"
-                style={{ minWidth: 100 }}
-              >
-                Price (₹)
-              </InputGroup.Text>
+              <span className="form-desc-text">Price (₹)</span>
               <FormControl
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
@@ -146,7 +163,35 @@ export default class AddPackage extends Component {
               </Form.Text>
             )}
             <br />
-            <h4>Add some pictures</h4>
+            <br />
+            <Box sx={{ minWidth: "" }}>
+              <span className="form-desc-text">Type</span>
+              <FC style={{ width: "50%", marginLeft: "160px", height: "50px" }}>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={this.state.type}
+                  label="Type"
+                  onChange={(e) => this.setState({ type: e.target.value })}
+                >
+                  {this.types.map((type) => (
+                    <MenuItem value={type}>{type}</MenuItem>
+                  ))}
+                </Select>
+              </FC>
+            </Box>
+            <br />
+            <span className="form-desc-text">Add Some Photos</span>
+            <p
+              style={{
+                wordWrap: "break-word",
+                lineBreak: "",
+                color: "#6c757d",
+                fontSize: "0.875em",
+              }}
+            >
+              An image of you or your team will make customers trust you more.
+            </p>
             <div className="img-upload">
               {this.state.img !== "" && (
                 <iframe
@@ -158,10 +203,6 @@ export default class AddPackage extends Component {
                 ></iframe>
               )}
               <div>
-                <p style={{ wordWrap: "break-word", lineBreak: "" }}>
-                  An image of you or your team will make customers trust you
-                  more.
-                </p>
                 <form
                   hidden
                   method="POST"
@@ -199,12 +240,14 @@ export default class AddPackage extends Component {
                 )}
               </div>
             </div>
-            <Button
-              onClick={this.handleSubmit}
-              style={{ width: "100%", margin: "1rem 0" }}
-            >
-              + Add Package
-            </Button>
+            <div className="sbt-btn">
+              <Button
+                onClick={this.handleSubmit}
+                style={{ width: "200px", margin: "3rem 0 0 0" }}
+              >
+                + Add Package
+              </Button>
+            </div>
           </Form>
         </Container>
       </div>

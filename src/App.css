@@ -1,3 +1,11 @@
-:root{
-    --cream:#fffdd0;
+:root {
+  --cream: #fffdd0;
+  --purple: #451e55;
+  --ltPurple: #b762c1;
+  --ltrPurple: #8946a6;
+  --prim-font: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
 }

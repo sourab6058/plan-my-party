@@ -1,0 +1,89 @@
+.seller-register-div {
+  width: 40%;
+  height: 500px;
+  margin: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../images/register-seller.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.seller-register-div-text {
+  position: absolute;
+  color: #fff;
+  z-index: 4;
+}
+.seller-register-div-color {
+  background: var(--ltrPurple);
+  z-index: 2;
+  width: 100%;
+  height: 500px;
+  opacity: 70%;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.form-div {
+  padding: 2rem;
+  margin: auto;
+}
+.seller-register-container {
+  width: 70%;
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #95979d;
+  background-color: #fff;
+  margin: 2rem auto;
+
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  /* margin-bottom: 2rem; */
+}
+.seller-register-heading {
+  font-size: 1.75rem;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  color: black;
+}
+.seller-register-button {
+  background-color: var(--ltrPurple);
+  border: 0;
+  width: 21rem !important;
+}
+.seller-register-button:hover {
+  background-color: var(--ltPurple);
+}
+.seller-register-knowmore {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seller-register-knowmore-inner {
+  width: 70%;
+}
+.seller-register-text {
+  color: black;
+  font-size: 1.5rem;
+}
+.image-buttons {
+  background-color: var(--ltrPurple);
+  display: block;
+  margin: 0 auto;
+}
+.image-buttons:hover {
+  background-color: var(--ltPurple);
+}
+.seller-register-page2-button {
+  display: block;
+  margin: 0.5rem auto;
+}
+.seller-register-page3-button {
+  background-color: var(--ltrPurple);
+}
+.seller-register-page3-button:hover {
+  background-color: var(--ltPurple);
+}
